@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  name:string = '';
+  users:string[] = ['John Doe', 'Mary Swanson', 'Kevin Smith'];
+
+  onSubmit(){
+    this.users.push(this.name);
+    this.name = '';
+  }
 }
