@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root', 
@@ -6,17 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user = {
-    name:'',
-    email:'',
-    phone:''
-  }
+  
+  users:string[];
 
-  onSubmit({value, valid}){
-    if(valid){
-      console.log(value);
-    }else{
-      console.log('Form is invalid');
-    }
+  constructor(public dataService:DataService){
+    this.users = this.dataService.getUsers();
   }
 }
